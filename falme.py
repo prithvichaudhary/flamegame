@@ -83,5 +83,29 @@ if __name__ == "__main__":
 
 	# list of FLAMES acronym
 	result = ["Friends", "Love", "Affection", "Marriage", "Enemy", "Siblings"]
+	# keep looping until only one item
+	# is not remaining in the result list
+	while len(result) > 1:
+
+		# store that index value from
+		# where we have to perform slicing.
+		split_index = (count % len(result) - 1)
+
+		# this steps is done for performing
+		# anticlock-wise circular fashion counting.
+		if split_index >= 0:
+
+			# list slicing
+			right = result[split_index + 1:]
+			left = result[: split_index]
+
+			# list concatenation
+			result = right + left
+
+		else:
+			result = result[: len(result) - 1]
+
+	# print final result
+	print("Relationship status :", result[0])
 
 
